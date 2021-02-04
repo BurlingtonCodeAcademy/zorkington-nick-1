@@ -34,6 +34,18 @@ class Room {
   this.straight = straight;
   this.back = back;
 }
+describe(){
+  return 
+}
+let myRoom = new Room("")
+
+console.log(myRoom.describe())
+
+let orderArr = process.argv.slice(2);
+
+orderArr.forEach((items) => {
+  orderTotal += menu[items];
+});
 
 //while(answer !== 'exit') {
  //answer = await ask('>_ ')
