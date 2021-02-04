@@ -10,11 +10,37 @@ function ask(questionText) {
 start();
 
 async function start() {
-  const welcomeMessage = `182 Main St.
-You are standing on Main Street between Church and South Winooski.
-There is a door here. A keypad sits on the handle.
-On the door is a handwritten sign.`;
+  const welcomeMessage = (`It’s a dark damp night and you swear you heard a soft whisper\n You think maybe that was just in your head?. \nYou need to decide, Should I really continue.`);
+  
+  if (welcomeMessage === "yes" || "y")
+  console.log ("Lets go.")
+  
+  
   let answer = await ask(welcomeMessage);
-  console.log('Now write your code to make this work!');
-  process.exit();
+  let userName = await ask("What is your name?")
+  
+  
+  //console.log(` `)
+  console.log(`Hello,  ${userName}, let's get started.`)
+  //process.exit();
 }
+class Room {
+  constructor(description, inventory, left, right, straight, back);
+    
+  this.description = description;
+  this.inventory = inventory;
+  this.left = left;
+  this.right = right;
+  this.straight = straight;
+  this.back = back;
+}
+
+//while(answer !== 'exit') {
+ //answer = await ask('>_ ')
+//}
+//let sign = {
+  //description: "The code to enter is 12345.\nEnter at your own risk. "
+  //read: () => {
+    //return this.description
+  //}
+//}
