@@ -21,4 +21,6 @@ start (),
 
 async function enter 
   
-console.log(you check the door and it is unlocked')
+console.log('you check the door and it is unlocked')
+
+
