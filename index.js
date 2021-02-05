@@ -24,28 +24,30 @@ async function start() {
   console.log(`Hello,  ${userName}, let's get started.`)
   //process.exit();
 }
-class Room {
-  constructor(description, inventory, left, right, straight, back);
+//class Room {
+  //constructor(description, inventory, left, right, straight, back);
     
-  this.description = description;
-  this.inventory = inventory;
-  this.left = left;
-  this.right = right;
-  this.straight = straight;
-  this.back = back;
-}
-describe(){
-  return 
-}
-let myRoom = new Room("")
+ // this.description = description;
+ // this.inventory = inventory;
+  //this.left = left;
+ // this.right = right;
+  //this.straight = straight;
+ // this.back = back;
+//}
+//describe(){
+ // return 
+//}
+//let myRoom = new Room("")
 
-console.log(myRoom.describe())
+//console.log(myRoom.describe())
 
-let orderArr = process.argv.slice(2);
+//let orderArr = process.argv.slice(2);
 
-orderArr.forEach((items) => {
-  orderTotal += menu[items];
-});
+//orderArr.forEach((items) => {
+  //orderTotal += menu[items];
+//});
+
+
 
 //while(answer !== 'exit') {
  //answer = await ask('>_ ')
