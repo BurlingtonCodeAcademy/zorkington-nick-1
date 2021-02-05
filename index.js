@@ -8,9 +8,9 @@ function ask(questionText) {
 }
 
 start();
-
+//game starts with asking the players name and a spooky welcome message
 async function start() {
-  const welcomeMessage = (`It’s a dark damp night and you swear you heard a soft whisper\n You think maybe that was just in your head?. \nYou need to decide, Should you really continue.`);
+  const welcomeMessage = (`It’s a dark damp night and you swear you heard a soft whisper.\n You think maybe that was just in your head. \nYou need to decide, Do you really want to continue.?`);
   //while(answer !== 'exit') {
  //answer = await ask('>_ ')
 //}
@@ -25,9 +25,9 @@ async function start() {
   
   let userName = await ask("What is your name?")
   let answer = await ask(welcomeMessage);
-  
+  //if yes lets start the game
   if (answer === "yes" || "y")
-  console.log ("Lets go.")
+  //console.log ("Lets go.")
   
   //console.log(` `)
   console.log(`Hello,  ${userName}, let's get started.`)
