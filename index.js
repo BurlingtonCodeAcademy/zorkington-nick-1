@@ -15,38 +15,50 @@ console.log(
   `It’s a dark damp night and you swear you heard a soft whisper\n You think maybe that was just in your head?. \nYou need to decide\n Should I really continue.`);
 
 start();
-
-async function start, (return(Promise.resolve)
-  const storyLine = ask("so do you want to play?") )
-}
-
-start.then({  (storyLine === "yes" || "y") 
-if (storyline === true) {console.log(
-  "Very Good/n There's just a just have a couple of things we have to discuss"
-)}
-
-else {console.log("sorry to take up any of  your time\n Goodbye")}
-  })
-  let answer = await ask();
-  let userName = await ask("What is your name? ");
-
-  console.log(`Hello', ${userName}, 'let us get started.`);
-  //else {console.log ('Sorry to take up any of your time./n enjoy this gorgeous night',(process.exit)}
+//game starts with asking the players name and a spooky welcome message
+async function start() {
+  const welcomeMessage = (`It’s a dark damp night and you are on the road out in front of 182 Main St. and you swear you heard a soft whisper.\nYou think maybe that was just in your head. \nYou need to decide, Do you really want to continue.?`);
+  //while(answer !== 'exit') {
+ //answer = await ask('>_ ')
+//}
+  //console.log("Sorry, I don't know how to  _____");
+//let sign = {
+  //description: "The code to enter is 12345.\nEnter at your own risk. "
+  //read: () => {
+    //return this.description
+  //}
+  //}
+  
+  
+  let userName = await ask("What is your name?")
+  let answer = await ask(welcomeMessage);
+  //if yes lets start the game
+  if (answer === "yes" || "y")
+  //console.log ("Lets go.")
+  
+  //console.log(` `)
+  console.log(`Ok, ${userName}, Let us begin.\nHead for the front door if City Hall right behind you. HURRY!`)
+  
+  //console.log("There is a not on the door that reads.\n To enter you must input this code "12345" in the keypad below.")
+  //console.log("You have three tries to get it right.\n If you fail you die.")
+  //}else{
+  //console.log("You have entered the Entrance Hall, you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase that has been roped off with a sign that reads AUTHORIZED PERSONELL ONLY.\n What way will you choose?")
+  
+  
+  //process.exit();
 }
 //class Room {
-
-//constructor(description, inventory, left, right, straight, back);
-
-//  this.description = description;
-//  this.inventory = inventory;
-//  this.left = left;
-//  this.right = right;
-//  this.straight = straight;
-//  this.back = back;
-
+  //constructor(description, inventory, left, right, straight, back);
+    
+ // this.description = description;
+ // this.inventory = inventory;
+  //this.left = left;
+ // this.right = right;
+  //this.straight = straight;
+ // this.back = back;
 //}
 //describe(){
-//return
+ // return 
 //}
 //let myRoom = new Room("")
 
@@ -55,15 +67,10 @@ else {console.log("sorry to take up any of  your time\n Goodbye")}
 //let orderArr = process.argv.slice(2);
 
 //orderArr.forEach((items) => {
-// orderTotal += menu[items];
+  //orderTotal += menu[items];
 //});
 
-//while(answer !== 'exit') {
-//answer = await ask('>_ ')
-//}
-//let sign = {
-//description: "The code to enter is 12345.\nEnter at your own risk. "
-//read: () => {
-//return this.description
-//}
-//}
+
+
+
+
