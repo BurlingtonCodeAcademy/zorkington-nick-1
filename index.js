@@ -21,13 +21,13 @@ async function start() {
     //return this.description
   //}
   //}
-  if (welcomeMessage === "yes" || "y")
-  console.log ("Lets go.")
+  
   
   let userName = await ask("What is your name?")
   let answer = await ask(welcomeMessage);
   
-  
+  if (answer === "yes" || "y")
+  console.log ("Lets go.")
   
   //console.log(` `)
   console.log(`Hello,  ${userName}, let's get started.`)
@@ -60,9 +60,3 @@ async function start() {
 
 
 
-//let sign = {
-  //description: "The code to enter is 12345.\nEnter at your own risk. "
-  //read: () => {
-    //return this.description
-  //}
-  //}
