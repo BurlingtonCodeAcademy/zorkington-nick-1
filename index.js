@@ -11,25 +11,34 @@ function ask(questionText) {
     readlineInterface.question(questionText, resolve);
   });
 }
-console.log(
-  
-async function start() {
-  const welcomeMessage = ('Welcome to Jack and Nick game' );
-  
-    console.log (`It’s a dark damp night and you are on the road out in front of 182 Main St. and you swear you heard a soft whisper.\nYou think maybe that was just in your head. \nYou need to decide, Do you really want to continue.?`)
- let answer = Response
-  if (answer !== "yes" || "y") {console.log ('I'/'m sorry I did not cattch you', ${answer}
-  
-  }
-  
+//Self explanitory
+console.log('welcomeToNick\'sAJack\'SLightlyUnfinishedGame')
 
-  let userName = await ask("What is your name?")
-  let answer = await ask(welcomeMessage);
-  let code = await ask("can you type in the code")
+console.log('theTimeOfYourLife!!')
+ 
+//The game starts now wioth the opening scene,
+async function start() {
+  const welcomeMessage = ( `It’s a dark damp night and you are on the road out in front of 182 Main St. and you swear you heard a soft whisper.\nWould you like to play a game?\nYou think maybe that was just in your head. \nYou need to decide, Do you really want to continue.?n\ONLY respond with a Yes or a No`);
+
+  //The potentioal play needs to respond with a Y or N to move on
+  //The response is evaluated to determine if they move on
+  process.stdin('data',(yesOrNo) =>{let = yesOrNo.toString})
+
+   if (yesOrNo == "yes" || "y" || "Y") {return}
+  else {comsole.log ('Please respond with a Y or N')}
+    let userName = await ask("What is your name?") //we wait for their 2 responses
+  let answer = await ask("What is your name?");
+  
+//The first room
+
+console.log ('See the entrance door to City Hall?\n There is a note there, read that note and respond Immediately\n You will have three three (3!) tries to get it correctly\n \n \nThe note sitting on a key reads\n  \n  \nWelcome' $(answer) 'the code is 12345')
+
+  process.stdin('data', (count) =>{)})
+  if count = 4 
   
   if (code == 12345) {start()}
   
-  cponsole.log ('Success! welcome'/ ${userName} 'to city hall on all hallows eve')
+  cponsole.log ('Success! welcome, ${userName} to city hall on all hallows eve')
   //else console goodbye 
   //{process.out} 
   //console.log ("Lets go.")
@@ -37,7 +46,7 @@ async function start() {
   //console.log(` `)
   console.log(`Ok, ${userName}, Let us begin.\nHead for the front door at City Hall right behind you. HURRY!`)
   
-  console.log("There is a not on the door that reads.\n To enter you must input this code)
+  console.log("There is a note on the door that reads.\n To enter you must input this code)
   
   //"12345" in the keypad below.")
 
