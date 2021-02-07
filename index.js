@@ -1,33 +1,22 @@
-<<<<<<< HEAD
 //this sectoion was goiven
 const { Console } = require("console");
-=======
->>>>>>> e5cb3b14c76ee6d097ad3e34abb7f13a4be461d6
 const readline = require("readline");
 //const { Console } = require("console");
 //const readline = require("readline");
 //const { start } = require("repl");
 const readlineInterface = readline.createInterface(
-<<<<<<< HEAD
   process.stdin,
   process.stdout
 )
 
 start()
 async function start() {
-=======
- process.stdin,
- process.stdout
-);
->>>>>>> e5cb3b14c76ee6d097ad3e34abb7f13a4be461d6
+ 
 function ask(questionText) {
   return new Promise((resolve, reject) => {
     r1.question(questionText), resolve;
   });
-}
-<<<<<<< HEAD
-//end of given (see first note)
-
+}//end of given (see first note)
 //creating rooms and player: classes, groups and arrays; week 2 objects method, slide 2- and OsJs slide 9 = definition 
 
 //Satchel is where you'll find what player has picked up 
@@ -64,8 +53,6 @@ class dropped{constructor(stick, hammer)
   this.hammer=hammer
   }
 }
-=======
-//console.log(
 start();
 async function start() {
   const welcomeMessage = `It’s a dark damp night and you are on the road out in front of 182 Main St.\n and you swear you heard a soft whisper.\nYou think maybe that was just in your head. \nYou need to decide, Do you really want to continue.?`;
@@ -98,22 +85,23 @@ async function start() {
   if (doorCode !== 12345){
   console.log("The sign says \"Welcome to City Hall.\n To enter you must input this code ",1,2,3,4," in the, keypad, below.")
   } 
-  //if (answer !== "yes", )   
+  else{while (count<4){console.log("You've had three tries/n You are not serious, go home to mother dear.")}
   
- //console.log("There is a sign on the door that reads.\n To enter you must input this code 12345, in the keypad below.")
-  //console.log("You have three tries to get it right.\n If you fail you die.")
-  //}else{
-  //console.log("You have entered the Entrance Hall, you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase that has been roped off with a sign that reads AUTHORIZED PERSONNEL ONLY.\n What way will you choose?")
-  
+  //entering first rm
 
-  
-  }
+  console.log("You have entered the Antechamber you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase that has been roped off with a sign that reads AUTHORIZED PERSONNEL ONLY.\n What way will you choose?"/n /n)
+  console.log ("meanwhile, the door you entered has closed and you heard it lock")
+
+  async function amait("left" || "right" || "straight")
+  let (left === brightHall, right === darkHall, straight === stairs)
+if left ()
 //creating rooms and player: week
 class Satchel{ 
   constructor(weapon1){
      this.weapon1 = weapon1;
+  }
 }
-class Room1{
+class antechamber{
   constructor(darkHall, brightHall, stairs, sign, inventory){
     this.darkHall = darkHall;
     this.brightHall = brightHall;
@@ -121,7 +109,8 @@ class Room1{
     this.sign = sign;
     this.inventory = inventory;
   }
-  class action{
+}
+class action{
     constructor(read, take, drop, open, move, climb, enter, out, jump, listen, right, left, forward, back){
       this.read = read;
       this.take = take;
@@ -148,17 +137,16 @@ class Room1{
 //let myRoom = new Room("")
 
 //console.log(myRoom.describe())   
-  )}
+ // )}
 
->>>>>>> e5cb3b14c76ee6d097ad3e34abb7f13a4be461d6
 
 
 // put in or remove from satchel; week 2 slide 12 - 
-//if (drop = stick || hammer){push}
-//if (grabIt = stick || hammer) {console.log('good move'), satchel.push
-//}
- //else( ) => {console.log ('you might need that stick for later\n I am just saying all it takes is to spellout need')
-//}
+if (drop === stick ||drop === hammer){push}
+if (grabIt === stick ||drop === hammer) {console.log('good move'), satchel.push
+}
+else( ) => {console.log ('you might need that stick for later\n I am just saying all it takes is to spellout /n stick /n or /n hammer')
+}
 
 start ()
 //Self explanitory
@@ -174,12 +162,10 @@ async function start() {
   //The response is evaluated to determine if they move on
   process.stdin.once("data", (yesOrNo) => {let yesOrNo = "opening".toLowerCase. trim(1)
   });
-<<<<<<< HEAD
   
   if (opening = y||n) {
   return}
   else {console.log("Please respond with a Y or N");
-=======
 
    if (yesOrNo == "yes" || "y" || "Y") {return}
   else {console.log ('Please respond with a Y or N')}
@@ -188,7 +174,6 @@ async function start() {
     return;
   } else {
     comsole.log("Please respond with a Y or N");
->>>>>>> e5cb3b14c76ee6d097ad3e34abb7f13a4be461d6
   }
   let userName = await ask("What is your name?"); //we wait for their response
   Let (answer) = player
@@ -266,7 +251,6 @@ console.log ('See the entrance door to City Hall?\n There is a note there, read 
 
   // pickUp and drop functions :push, pull, slice, trim. look in week 2; arrays
 //pickUp
-<<<<<<< HEAD
 process.stdin.once('data', (pickedUp)=>{pickedUp.toString()})
 if (pickedUp) {console.log('smart move')}
 }  
@@ -276,7 +260,6 @@ function dropIt() {pop()
   console.log(player.inventory.indexOf())
   player.inventory.splice (player.inventory.indexOf(dropItem) )
 }
-=======
 //process.stdin.once('data', (pickedUp)=>{pickedUp.toString()})
   //if (player) pickedUp =  true {}
   
@@ -285,7 +268,6 @@ function dropIt() {pop()
   //console.log(player.invetory.indexOf())
   //player.inventory.splice (player.inventory.indexOf(dropItem) )
 //}
->>>>>>> e5cb3b14c76ee6d097ad3e34abb7f13a4be461d6
 
   let antiRm = ["stairCase", "darkHall", "brightHall", "sign"];
   let study = ["books", "spiders", "redCarpet", "door", "door"];
