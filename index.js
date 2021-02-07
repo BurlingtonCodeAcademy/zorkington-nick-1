@@ -1,27 +1,65 @@
+//this sectoion was goiven
 const { Console } = require("console");
 const readline = require("readline");
 //const { start } = require("repl");
 const readlineInterface = readline.createInterface(
   process.stdin,
   process.stdout
-);
+)
+
+start()
+async function start() {
 function ask(questionText) {
   return new Promise((resolve, reject) => {
     r1.question(questionText), resolve;
   });
 }
-//creating rooms and player: week
-class Sachel{ 
-  constructor[]
-  { this.weapon1 = this.weapon1
+//end of given (see first note)
+
+//creating rooms and player: classes, groups and arrays; week 2 objects method, slide 2- and OsJs slide 9 = definition 
+
+//Satchel is where you'll find what player has picked up 
+class Satchel {constructor(){}}
+
+//creating rooms
+class anteChamber{
+  constructor(darkHall, brightHall, stairs, sign,door1, door2){
+    this.darkHall = darkHall
+    this.brightHall = brightHall
+    this.stairs = this.stairs
+    this.sign = sign
+    this.door1 = door1
+    this.door2 = door2
+  }
 }
-class room1{constructor(darkHall, brightHall, stairs, 
-  
-//function push
-//function pop  
-  )}
+//objects player must pick up
+class grabIt{
+  constructor(stick, hammer){
+    this.stick=stick
+    this.hammer=hammer
+  }
+}
+//Objects player can pickup but must leave there
+class moveableObjects{
+  constructor(spiders)
+  {
+    This.spider=spider
+  }
+}
+class dropped{constructor(stick, hammer)
+  {
+  this.stick=stick
+  this.hammer=hammer
+  }
 }
 
+
+// put in or remove from satchel; week 2 slide 12 - 
+//if (drop = stick || hammer){push}
+//if (grabIt = stick || hammer) {console.log('good move'), satchel.push
+//}
+ //else( ) => {console.log ('you might need that stick for later\n I am just saying all it takes is to spellout need')
+//}
 
 start ()
 //Self explanitory
@@ -32,20 +70,18 @@ console.log("Have the Time Of Your Life!!");
 //The game starts now with the opening scene,
 async function start() {
   const welcomeMessage = `It’s a dark damp night and you are on the road out in front of 182 Main St. and you swear you heard a soft whisper.\nWould you like to play a game?\nYou think maybe that was just in your head. \nYou need to decide, Do you really want to continue.?n\ONLY respond with a Yes or a No`;
-console.log(welcomeMessage)
-  //The potentioal play needs to respond with a Y or N to move on
+  console.log(welcomeMessage)
+  //The potentioal player needs to respond with a Y or N to move on
   //The response is evaluated to determine if they move on
-  process.stdin.once("data", (yesOrNo) => { yesOrNo.toString;
+  process.stdin.once("data", (yesOrNo) => {let yesOrNo = "opening".toLowerCase. trim(1)
   });
-
-  if (yesOrNo == "yes" || "y" || "Y") {
-    return;
-  } else {
-    comsole.log("Please respond with a Y or N");
+  
+  if (opening = y||n) {
+  return}
+  else {console.log("Please respond with a Y or N");
   }
-  let userName = await ask("What is your name?"); //we wait for their 2 responses
-  let answer = await ask("What is your name?");
-Let (answer) = player
+  let userName = await ask("What is your name?"); //we wait for their response
+  Let (answer) = player
 
   //The first room
 
@@ -82,13 +118,14 @@ Let (answer) = player
   // pickUp and drop functions :push, pull, slice, trim. look in week 2; arrays
 //pickUp
 process.stdin.once('data', (pickedUp)=>{pickedUp.toString()})
-  if (player) pickedUp =  true {}
+if (pickedUp) {console.log('smart move')}
 }  
 //drop item
-function dropIt{dropItem){
-  console.log(player.invetory.indexOf())
+
+function dropIt() {pop()
+  console.log(player.inventory.indexOf())
   player.inventory.splice (player.inventory.indexOf(dropItem) )
-}}
+}
 
   let antiRm = ["stairCase", "darkHall", "brightHall", "sign"];
   let study = ["books", "spiders", "redCarpet", "door", "door"];
