@@ -29,12 +29,12 @@ async function start() {
   );
   //If yes game is over
   Y = console.log("I knew it, game over", exit);
-  if ((YesOrNo.toUpperCase().trim() = "Y")) {
+  if ((YesOrNo = "Y")) {
     console.log(`I knew your number was ${guess}`);
 
     // New max and min
   } else {
-    let higherOrlower = await ask(
+    let higherOrLower = await ask(
       `is your number higher or lower than ${guess} enter H if higher or L for lower.\n)`
     );
   }
