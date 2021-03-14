@@ -15,7 +15,7 @@ async function start() {
   let response = await ask(
     'It’s a dark damp night and you are on the road out in front of 182 Main St. and you swear you heard a soft whisper.\n\n" Would you like to play a game?\n\nYou think maybe that was just a thought in your head.\n \nYou need to decide\n\n then voice returns\n'
   );
-  // our first use of the async coveerage
+  // our first use of the async coverage
   let answer = await ask(
     '"Have you decided?\n\nONLY respond with a\n \nYes or a No"\n\n'
   );
