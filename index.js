@@ -1,4 +1,7 @@
+const { doesNotReject } = require("assert");
+const { triggerAsyncId } = require("async_hooks");
 const { Console } = require("console");
+const { SSL_OP_CRYPTOPRO_TLSEXT_BUG } = require("constants");
 const { exit } = require("process");
 const readline = require("readline");
 const r1 = readline.createInterface(process.stdin, process.stdout);
@@ -48,7 +51,7 @@ const mainStreet = new Room(
 const cityHall = new Room(
   "city hall",
   "city hall description",
-  [],
+  ["keypad", "large wooden Door"],
   null,
   null,
   true,
@@ -71,7 +74,7 @@ function changeRoom(newRoom) {
     let roomForTable = roomLookUp[currentRoom];
     console.log(currentRoom);
     console.log(roomForTable.description);
-    console.log(roomForTable.straight)
+    console.log(roomForTable.straight);
   } else {
     console.log("doors locked");
   }
@@ -95,9 +98,9 @@ async function start() {
   );
   // Check if the response is yes.
   if (response == "yes") {
-    //If yes, then console log this text so the game proceeds, Call the sourHall function once done.
+    //If yes, then console log this text so the game proceeds, Call the =city hall function once done.
     console.log(
-      "You may proceed the the entrance door of City Hall\nThere you will find a note, follow its instructions perfectly\nYou find the note sitting on a numerical key pad.\nThe note is simple, You will have 3 chances to put this code in correctly\n Code 1234"
+      "You may proceed the the entrance door of City Hall\nThere you will find a note, follow its instructions perfectly\n"
     );
     changeRoom("cityHall");
   } else {
@@ -106,5 +109,20 @@ async function start() {
       "I am sorry you do not want to play\n you can always change your mind, I will be here"
     );
     process.exit();
-  }
+   };
+  count = 0;
+  let keypad = await ask(
+    "Please enter the the code 1234 on this key pad\n You will have three tries to get it correctly\n"
+  );
+  console.log("keypad")
+
+  if (entranceCode !== 1234 && count <= 3)
+   {console.log ("Please try again")
+      count = count++
+    }
+    else if (count > 3)
+      {console.log("I gave you 3 tries, sorry");
+    process.exit
+  }else
+
 }
