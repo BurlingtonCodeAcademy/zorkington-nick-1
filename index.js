@@ -72,7 +72,7 @@ const cityHall = new Room(
 );
 const anteChamber = new Room(
   "ante chamber",
-  "You have entered the Antechamber you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase.\n Which way will you choose?/n Left, Right or straight/n Meanwhile, you heard the door lock behind you",
+  "You have entered the Antechamber. Right to the roight nof you is an umbrella stand with a big stick in nthe case.\n There is a massive chandlier in the center of the ceiling. It seems to be ever so slightly blowing in the breeze.\n Meanwhile, you heard the door lock behind you. You say to your self maybe I should take tht stick,\nDo you take the stick or not and leave your umnbrella behind/n You preceed down the only path available to you, a short hallway",
   [stick],
   null,
   null,
@@ -82,7 +82,7 @@ const anteChamber = new Room(
 );
 const hallWay = new Room(
   "hallway",
-  "You have entered the Entrance Hall, you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase that has been roped off with a sign that reads AUTHORIZED PERSONNEL ONLY.\n What way will you choose?",
+  "You have entered the Entrance Hall, which is short and  has a coat room on your left. You decide to leave your rainjacket behind amd gather the ticket stub for your jacket from this elderly, blue haired women.\nAt the end of the hallway you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase.\n What way will you choose? \n",
   [portrait,],
   true,
   true,
@@ -100,16 +100,10 @@ const roomOne = new Room(
   true,
   false
 );
-const roomTwo = new Room(
-<<<<<<< HEAD
-  "city hall",
-  "city hall description",
-  ["keypad", "large wooden Door"],
-=======
+const roomTwo = new Room(n
   "room two",
   "Back out in the hallway at the top of the stairs is a door to the right is another office, inside is yet another table and chairs with a mini bar in the corner that has only a bottle of Scotch remaining. On one wall of the office is a open window with a crow sitting on the ledge. All of a sudden the crow squawks and says `leave now or regret it`. So you need to leave that room in a hurry but not before picking up the bottle of Scotch.   ",
   [scotch],
->>>>>>> 69a0c231a8fcbd745eaf461a0dfca3ab3b89cd0e
   null,
   null,
   true,
