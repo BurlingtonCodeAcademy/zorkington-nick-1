@@ -62,7 +62,7 @@ const mainStreet = new Room(
 );
 const cityHall = new Room(
   "city hall",
-  "You walk up to City Hall. In front of you is a very large wooden door with a brass head of a lion as knocker. Behind you is the steps you just came up that funnel you to this massive door. You knock, thr doors swings open as if it was unlocked waiting for you. You step inside nto what you can describe as the anti-chamber",
+  "You walk up to City Hall. In front of you is a very large wooden door with a brass head of a lion as knocker. Behind you is the steps you just came up that funnel you to this massive door. You knock, the door swings open as if it was unlocked waiting for you. You step inside nto what you can describe as the anti-chamber",
   [],
   null,
   null,
@@ -100,7 +100,7 @@ const roomOne = new Room(
   true,
   false
 );
-const roomTwo = new Room(n
+const roomTwo = new Room(
   "room two",
   "Back out in the hallway at the top of the stairs is a door to the right is another office, inside is yet another table and chairs with a mini bar in the corner that has only a bottle of Scotch remaining. On one wall of the office is a open window with a crow sitting on the ledge. All of a sudden the crow squawks and says `leave now or regret it`. So you need to leave that room in a hurry but not before picking up the bottle of Scotch.   ",
   [scotch],
