@@ -28,7 +28,16 @@ let roomTwo;
 let roomThree;
 
 class Room {
-  constructor(name, description, inventory, left, right, straight, back, locked) {
+  constructor(
+    name,
+    description,
+    inventory,
+    left,
+    right,
+    straight,
+    back,
+    locked
+  ) {
     this.name = name;
     this.description = description;
     this.inventory = inventory;
@@ -36,14 +45,15 @@ class Room {
     this.right = right;
     this.straight = straight;
     this.back = back;
-    this.locked = false
+    this.locked = false;
   }
 }
+
 //
 const mainStreet = new Room(
   "main street",
   "It’s a dark damp night and you are on the road out in front of 182 Main St.\n and you swear you heard a soft whisper.\nYou think maybe that was just in your head. \nYou need to decide, Do you really want to continue.? If yes than make your way over to City Hall across the street.",
-  [],
+  [bicycle, umbrella],
   null,
   null,
   true,
@@ -52,7 +62,7 @@ const mainStreet = new Room(
 );
 const cityHall = new Room(
   "city hall",
-  "You walk up to City Hall ",
+  "You walk up to City Hall. In front of you is a very large wooden door with a brass head of a lion as knocker. Behind you is the steps you just came up that funnel you to this massive door. You knock, thr doors swings open as if it was unlocked waiting for you. You step inside nto what you can describe as the anti-chamber",
   [],
   null,
   null,
@@ -61,9 +71,9 @@ const cityHall = new Room(
   false
 );
 const anteChamber = new Room(
-  "anti chamber",
-  "You have entered the Antechamber you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase that has been roped off with a sign that reads AUTHORIZED PERSONNEL ONLY.\n Which way will you choose?/n Left, Right or straight/n Meanwhile, you heard the door lock behind you",
-  [],
+  "ante chamber",
+  "You have entered the Antechamber you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase.\n Which way will you choose?/n Left, Right or straight/n Meanwhile, you heard the door lock behind you",
+  [stick],
   null,
   null,
   true,
@@ -73,7 +83,7 @@ const anteChamber = new Room(
 const hallWay = new Room(
   "hallway",
   "You have entered the Entrance Hall, you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase that has been roped off with a sign that reads AUTHORIZED PERSONNEL ONLY.\n What way will you choose?",
-  [],
+  [portrait,],
   true,
   true,
   true,
@@ -82,8 +92,8 @@ const hallWay = new Room(
 );
 const roomOne = new Room(
   "room one",
-  "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk in one corner with two chairs in front.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n A bottle of Scotch is the only thing remaining.",
-  [],
+  "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk on the desk is a letter opening knife, in one corner with two chairs in front.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n A untouched bottle of Scotch is the only thing remaining.",
+  [scotch, knife],
   null,
   null,
   true,
@@ -91,9 +101,15 @@ const roomOne = new Room(
   false
 );
 const roomTwo = new Room(
+<<<<<<< HEAD
   "city hall",
   "city hall description",
   ["keypad", "large wooden Door"],
+=======
+  "room two",
+  "Back out in the hallway at the top of the stairs is a door to the right is another office, inside is yet another table and chairs with a mini bar in the corner that has only a bottle of Scotch remaining. On one wall of the office is a open window with a crow sitting on the ledge. All of a sudden the crow squawks and says `leave now or regret it`. So you need to leave that room in a hurry but not before picking up the bottle of Scotch.   ",
+  [scotch],
+>>>>>>> 69a0c231a8fcbd745eaf461a0dfca3ab3b89cd0e
   null,
   null,
   true,
@@ -102,13 +118,13 @@ const roomTwo = new Room(
 );
 const roomThree = new Room(
   "room three",
-  "room three description",
+  "As your running down the hallway you check the door and find it is locked.",
   [],
   null,
   null,
   true,
   true,
-  true
+  false
 );
 
 let roomLookUp = {
