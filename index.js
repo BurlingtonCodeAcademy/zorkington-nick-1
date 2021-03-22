@@ -21,12 +21,7 @@ let rooms = {
 };
 let currentRoom = "mainStreet";
 
-let anteChamber;
-let hallWay;
-let roomOne;
-let roomTwo;
-let roomThree;
-
+//Class constructors of the rooms 
 class Room {
   constructor(
     name,
@@ -40,7 +35,7 @@ class Room {
   ) {
     this.name = name;
     this.description = description;
-    this.inventory = inventory;
+    this.inventory = [];
     this.left = left;
     this.right = right;
     this.straight = straight;
@@ -49,11 +44,11 @@ class Room {
   }
 }
 
-//room constructors
+//Room Constructors
 const mainStreet = new Room(
   "main street",
   "It’s a dark damp night and you are on the road out in front of 182 Main St.\n and you swear you heard a soft whisper.\nYou think maybe that was just in your head. \nYou need to decide, Do you really want to continue.? If yes than make your way over to City Hall across the street.",
-  [bicycle, umbrella],
+  [],
   null,
   null,
   true,
@@ -62,7 +57,7 @@ const mainStreet = new Room(
 );
 const cityHall = new Room(
   "city hall",
-  "You walk up to City Hall. In front of you is a very large wooden door with a brass head of a lion as knocker. Behind you is the steps you just came up that funnel you to this massive door. You knock, the door swings open as if it was unlocked waiting for you. You step inside nto what you can describe as the anti-chamber",
+  "You walk up to City Hall. In front of you is a very large wooden door with a brass head of a lion as knocker. Behind you is the steps you just came up that funnel you to this massive door. You knock, the door swings open as if it was unlocked waiting for you. You step inside into what you can describe as the anti-chamber",
   [],
   null,
   null,
@@ -92,8 +87,8 @@ const hallWay = new Room(
 );
 const roomOne = new Room(
   "room one",
-  "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk. On the desk is a letter opening knife, in one corner with two chairs in front.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n A untouched bottle of Scotch is the only thing remaining.",
-  [scotch, knife],
+  "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk in one corner with two chairs in front. On the desk is an old newspaper.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n A untouched bottle of Scotch is the only thing remaining.",
+  [],
   null,
   null,
   true,
@@ -121,14 +116,15 @@ const roomThree = new Room(
   false
 );
 
+//Room Lookup table 
 let roomLookUp = {
-  mainStreet: mainStreet,
-  cityHall: cityHall,
-  anteChamber: anteChamber,
-  hallWay: hallWay,
-  roomOne: roomOne,
-  roomTwo: roomTwo,
-  roomThree: roomThree,
+  'mainStreet': mainStreet,
+  'cityHall': cityHall,
+  'anteChamber': anteChamber,
+  'hallWay': hallWay,
+  'roomOne': roomOne,
+  'roomTwo': roomTwo,
+  'roomThree': roomThree,
 };
 //tracks if the current room can change to new room
 function changeRoom(newRoom) {
@@ -138,10 +134,37 @@ function changeRoom(newRoom) {
     let roomForTable = roomLookUp[currentRoom];
     console.log(currentRoom);
     console.log(roomForTable.description);
-    console.log(roomForTable.straight);
   } else {
     console.log("doors locked");
   }
+}
+
+
+
+//Class Constructor for items
+class Items {
+  constructor(name, description, takeable) {
+    this.name = name,
+    this.description = description,
+    this.takeable = true
+  }
+}
+
+//Items constructor
+const stick = new Items("stick","Large wooden walking stick in case the path before gets rough", true)
+const scotch = new Items("scotch","An untouched, vintage 75 year old, highland, Single Malt Bottle of Scotch with some dust gathering on it.", true)
+const newspaper = new Items("newspaper", "A Newspaper, October 31st, 1946.", false)
+const rainJacket = new Items("rainJacket", "A slightly, damp, rain jacket from the cold wet outside weather.", true)
+const ticketStub = new Items("ticketStub", "You receive a ticket stub for your rain jacket, also on the back it reads:'Good for 1 Free Bottle of Scotch'", true)
+
+
+//item lookup table
+let itemLookUp = {
+  "stick": stick,
+  "scotch": scotch,
+  "newspaper": newspaper,
+  "rainJacket": rainjacket,
+  "ticketStub": ticketstub,
 }
 
 // Function Setting Up `ask()`
@@ -166,7 +189,7 @@ async function start() {
     console.log(
       "You may proceed the the entrance door of City Hall\nThere you will find a note, follow its instructions perfectly\n"
     );
-    changeRoom("cityHall");
+    changeRoom("");
   } else {
     // If no, console log and end the program with process.exit()
     console.log(
