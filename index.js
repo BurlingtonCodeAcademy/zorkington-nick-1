@@ -49,7 +49,7 @@ class Room {
   }
 }
 
-//
+//room constructors
 const mainStreet = new Room(
   "main street",
   "It’s a dark damp night and you are on the road out in front of 182 Main St.\n and you swear you heard a soft whisper.\nYou think maybe that was just in your head. \nYou need to decide, Do you really want to continue.? If yes than make your way over to City Hall across the street.",
@@ -72,7 +72,7 @@ const cityHall = new Room(
 );
 const anteChamber = new Room(
   "ante chamber",
-  "You have entered the Antechamber you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase.\n Which way will you choose?/n Left, Right or straight/n Meanwhile, you heard the door lock behind you",
+  "You have entered the Antechamber. Right to the right nof you is an umbrella stand with a big stick in the case.\n There is a massive chandelier in the center of the ceiling. It seems to be ever so slightly blowing in the breeze.\n Meanwhile, you heard the door lock behind you. You say to your self maybe I should take the stick,\nDo you take the stick or not and leave your umbrella behind.\n You proceed down the only path available to you, a short hallway",
   [stick],
   null,
   null,
@@ -92,7 +92,7 @@ const hallWay = new Room(
 );
 const roomOne = new Room(
   "room one",
-  "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk on the desk is a letter opening knife, in one corner with two chairs in front.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n A untouched bottle of Scotch is the only thing remaining.",
+  "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk. On the desk is a letter opening knife, in one corner with two chairs in front.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n A untouched bottle of Scotch is the only thing remaining.",
   [scotch, knife],
   null,
   null,
@@ -174,19 +174,6 @@ async function start() {
     );
     process.exit();
    };
-  count = 0;
-  let keypad = await ask(
-    "Please enter the the code 1234 on this key pad\n You will have three tries to get it correctly\n"
-  );
-  console.log("keypad")
-
-  if (entranceCode !== 1234 && count <= 3)
-   {console.log ("Please try again")
-      count = count++
-    }
-    else if (count > 3)
-      {console.log("I gave you 3 tries, sorry");
-    process.exit
-  }else
+  
 
 }
