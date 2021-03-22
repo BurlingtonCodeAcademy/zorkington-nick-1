@@ -21,7 +21,7 @@ let rooms = {
 };
 let currentRoom = "mainStreet";
 
-//Class constructors of the rooms 
+//Class constructors of the rooms
 class Room {
   constructor(
     name,
@@ -78,7 +78,7 @@ const anteChamber = new Room(
 const hallWay = new Room(
   "hallway",
   "You have entered the Entrance Hall, which is short and has a coat room on your left. You decide to leave your rain jacket behind and gather the ticket stub for your jacket from this elderly, blue haired women.\nAt the end of the hallway you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase.\n What way will you choose?. ",
-  [portrait,],
+  [portrait],
   true,
   true,
   true,
@@ -116,15 +116,15 @@ const roomThree = new Room(
   false
 );
 
-//Room Lookup table 
+//Room Lookup table
 let roomLookUp = {
-  'mainStreet': mainStreet,
-  'cityHall': cityHall,
-  'anteChamber': anteChamber,
-  'hallWay': hallWay,
-  'roomOne': roomOne,
-  'roomTwo': roomTwo,
-  'roomThree': roomThree,
+  mainStreet: mainStreet,
+  cityHall: cityHall,
+  anteChamber: anteChamber,
+  hallWay: hallWay,
+  roomOne: roomOne,
+  roomTwo: roomTwo,
+  roomThree: roomThree,
 };
 //tracks if the current room can change to new room
 function changeRoom(newRoom) {
@@ -139,33 +139,50 @@ function changeRoom(newRoom) {
   }
 }
 
-
-
 //Class Constructor for items
 class Items {
   constructor(name, description, takeable) {
-    this.name = name,
-    this.description = description,
-    this.takeable = true
+    (this.name = name),
+      (this.description = description),
+      (this.takeable = true);
   }
 }
 
 //Items constructor
-const stick = new Items("stick","Large wooden walking stick in case the path before gets rough", true)
-const scotch = new Items("scotch","An untouched, vintage 75 year old, highland, Single Malt Bottle of Scotch with some dust gathering on it.", true)
-const newspaper = new Items("newspaper", "A Newspaper, October 31st, 1946.", false)
-const rainJacket = new Items("rainJacket", "A slightly, damp, rain jacket from the cold wet outside weather.", true)
-const ticketStub = new Items("ticketStub", "You receive a ticket stub for your rain jacket, also on the back it reads:'Good for 1 Free Bottle of Scotch'", true)
-
+const stick = new Items(
+  "stick",
+  "Large wooden walking stick in case the path before gets rough",
+  true
+);
+const scotch = new Items(
+  "scotch",
+  "An untouched, vintage 75 year old, highland, Single Malt Bottle of Scotch with some dust gathering on it.",
+  true
+);
+const newsPaper = new Items(
+  "news paper",
+  "A Newspaper, October 31st, 1946.",
+  false
+);
+const rainJacket = new Items(
+  "rain jacket",
+  "A slightly, damp, rain jacket from the cold wet outside weather.",
+  true
+);
+const ticketStub = new Items(
+  "ticket stub",
+  "You receive a ticket stub for your rain jacket, also on the back it reads:'Good for 1 Free Bottle of Scotch'",
+  true
+);
 
 //item lookup table
 let itemLookUp = {
-  "stick": stick,
-  "scotch": scotch,
-  "newspaper": newspaper,
-  "rainJacket": rainjacket,
-  "ticketStub": ticketstub,
-}
+  stick: stick,
+  scotch: scotch,
+  newsPaper: newsPaper,
+  rainJacket: rainJacket,
+  ticketStub: ticketStub,
+};
 
 // Function Setting Up `ask()`
 function ask(questionText) {
@@ -196,7 +213,5 @@ async function start() {
       "I am sorry you do not want to play\n you can always change your mind, I will be here"
     );
     process.exit();
-   };
-  
-
+  }
 }
