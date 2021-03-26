@@ -434,3 +434,21 @@ from here out its stuff we had readyf to go...
      orderArr.forEach((items) => {
      orderTotal += menu[items];
      });
+
+
+
+     //  // Check if the response is yes.
+  // if (response == "yes") {
+  //   //If yes, then console log this text so the game proceeds, Call the =city hall function once done.
+    
+  //   console.log(
+  //     "You may proceed to the entrance door of City Hall\nThere you will find a note, follow its instructions perfectly\n"
+  //   );
+    
+  // } else {
+  //   // If no, console log and end the program with process.exit()
+  //   console.log(
+  //     "I am sorry you do not want to play\n you can always change your mind, I will be here"
+  //   );
+    //process.exit()
+  //}
