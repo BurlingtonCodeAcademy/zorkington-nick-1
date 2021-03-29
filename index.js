@@ -1,8 +1,4 @@
-const { doesNotReject } = require("assert");
-const { triggerAsyncId } = require("async_hooks");
-const { Console } = require("console");
-const { SSL_OP_CRYPTOPRO_TLSEXT_BUG } = require("constants");
-const { exit } = require("process");
+
 const readline = require("readline");
 const r1 = readline.createInterface(process.stdin, process.stdout);
 
@@ -27,7 +23,6 @@ class Room {
     name,
     description,
     inventory,
-
     locked
   ) {
     this.name = name;
@@ -54,29 +49,29 @@ const cityhall = new Room(
 );
 const antechamber = new Room(
   "antechamber",
-  "You have entered the Antechamber. Right to the right nof you is an umbrella stand with a big stick in the case.\n There is a massive chandelier in the center of the ceiling. It seems to be ever so slightly blowing in the breeze.\n Meanwhile, you heard the door lock behind you. You say to your self maybe I should take the stick,\nDo you take the stick or not and leave your umbrella behind.\n You proceed down the only path available to you, a short hallway",
-  [],
+  "You have entered the Antechamber. Right to the right of you is an umbrella stand with a big stick in the case.\n There is a massive chandelier in the center of the ceiling. It seems to be ever so slightly blowing in the breeze.\n Meanwhile, you heard the door lock behind you. You say to your self maybe I should take the stick,\nDo you take the stick or not and leave your umbrella behind.\n You proceed down the only path available to you, a short hallway",
+  ['stick',],
 
   false
 );
 const hallway = new Room(
   "hallway",
   "You have entered the Entrance Hall, which is short and has a coat room on your left. You decide to leave your rain jacket behind and gather the ticket stub for your jacket from this elderly, blue haired women.\nAt the end of the hallway you have three choices where to go.\n To the left is a nice sunny lit hallway with people working in their offices.\n to the right is a dark dreary hallway with cobwebs covering the entrance.\n Straight ahead is a huge marble staircase.\n What way will you choose?. ",
-  [],
+  [ticketStub],
 
   false
 );
 const roomone = new Room(
   "room one",
-  "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk in one corner with two chairs in front. On the desk is an old newspaper.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n A untouched bottle of Scotch is the only thing remaining.",
-  [],
+  "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk in one corner with two chairs in front. On the desk is an old newspaper.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n An untouched bottle of Scotch is the only thing remaining.",
+  ['newsPaper', 'scotch'.],
 
   false
 );
 const roomtwo = new Room(
   "room two",
   "Back out in the hallway at the top of the stairs is a door to the right is another office, inside is yet another table and chairs with a mini bar in the corner that has only a bottle of Scotch remaining. On one wall of the office is a open window with a crow sitting on the ledge. All of a sudden the crow squawks and says 'leave now or regret it'. So you need to leave that room in a hurry but not before picking up the bottle of Scotch.",
-  [],
+  [scotch],
 
   false
 );
@@ -114,9 +109,9 @@ function changeRoom(newRoom) {
 //Class Constructor for items
 class Items {
   constructor(name, description, takeable) {
-    (this.name = name),
-      (this.description = description),
-      (this.takeable = true);
+  this.name = name,
+      this.description = description,
+      this.takeable = true;
   }
 }
 
@@ -164,6 +159,15 @@ let actions = {
   inspect: ["inspect"],
 };
 
+//player variables
+const player = {
+  inventory: [],
+  location: null,
+}
+
+
+//Function Block
+
 // Function Setting Up `ask()`
 function ask(questionText) {
   return new Promise((resolve, reject) => {
@@ -175,6 +179,40 @@ function sanitizedWord(dirtyInput) {
   let sanitized = dirtyInput.trim().toLowerCase();
   return sanitized;
 }
+//pickup function
+function pickUp(takeIt) {
+  let takeableItem = itemLookUp[takeIt]
+  if(!takeableItem){
+    console.log("That does not exsist in this room")
+  } else if(takeableItem.takeable === true && player.location.inv.includes(takeIt)){
+player.location.inv.splice(player.location.inv.indexOf(takeIt), 1)
+player.inventory.push(takeIt)
+console.log("You picked up the " + takeIt)
+  } else {
+    console.log("You can't take that!")
+  }
+}
+
+//drop items function
+function dropIt(trash) {
+  if (player.inventory.includes(trash)) {
+    player.inventory.splice(player.inventory.indexOf(trash), 1)
+    player.location.inv.push(trash)
+    console.log("You have dropped the " + trash)
+  } else {
+    console.log("You don't have this item")
+  }
+}
+// examine items function
+function lookAt(checkMe) {
+  let lookAtItems = itemLookUp[checkMe]
+  if(player.location.inv.includes(checkMe)) {
+    console.log(lookAtItems.description)
+  } else {
+    console.log("Nothing to look at")
+  }
+}
+
 // Calling the Start function to start the game initially.
 start();
 
@@ -196,6 +234,12 @@ async function start() {
     //if its a movement command and the command is in the actions word bank then call the changeroom function 
     if (actions.move.includes(command)) {
       changeRoom(activity);
+    } else if (actions.take.includes(command)) {
+      pickUp(activity)
+    } else if (actions.drop.includes(command)) {
+      dropIt(activity)
+    } else if (actions.examine.includes(command)) {
+      lookAt(activity)
     }
   }
 }
