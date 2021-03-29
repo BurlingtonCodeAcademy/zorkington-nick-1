@@ -10,10 +10,10 @@ let rooms = {
   mainStreet: { canChangeTo: ["cityhall"] },
   cityhall: { canChangeTo: ["antechamber"] },
   antechamber: { canChangeTo: ["hallway"] },
-  hallway: { canChangeTo: ["roomone", "roomtwo", "roomthree"] },
-  roomone: { canChangeTo: ["hallway"] },
-  roomtwo: { canChangeTo: ["hallway"] },
-  roomthree: { canChangeTo: ["hallway"] },
+  hallway: { canChangeTo: ["office", "kitchen", "fireescape"] },
+  office: { canChangeTo: ["hallway"] },
+  kitchen: { canChangeTo: ["hallway"] },
+  fireescape: { canChangeTo: ["hallway"] },
 };
 let currentRoom = "mainStreet";
 
@@ -61,22 +61,22 @@ const hallway = new Room(
 
   false
 );
-const roomone = new Room(
-  "room one",
+const office = new Room(
+  "office",
   "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk in one corner with two chairs in front. On the desk is an old newspaper.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n An untouched bottle of Scotch is the only thing remaining.",
-  ['newsPaper', 'scotch'.],
+  ['newsPaper', 'scotch'],
 
   false
 );
-const roomtwo = new Room(
-  "room two",
-  "Back out in the hallway at the top of the stairs is a door to the right is another office, inside is yet another table and chairs with a mini bar in the corner that has only a bottle of Scotch remaining. On one wall of the office is a open window with a crow sitting on the ledge. All of a sudden the crow squawks and says 'leave now or regret it'. So you need to leave that room in a hurry but not before picking up the bottle of Scotch.",
+const kitchen = new Room(
+  "kitchen",
+  "Back out in the hallway at the top of the stairs is a door to the right that looks like a kitchen, inside is a dinning table and chairs with a mini bar in the corner that has only a bottle of Scotch remaining. On one wall of the kitchen is a open window with a crow sitting on the ledge. All of a sudden the crow squawks and says 'leave now or regret it'. So you need to leave that room in a hurry, but not before picking up the bottle of Scotch.",
   [scotch],
 
   false
 );
-const roomthree = new Room(
-  "room three",
+const fireescape = new Room(
+  "fireescape",
   "As your running down the hallway you check the door and find it is locked.",
   [],
 
@@ -89,9 +89,9 @@ let roomLookUp = {
   cityhall: cityhall,
   hallway: hallway,
   antechamber: antechamber,
-  roomone: roomone,
-  roomtwo: roomtwo,
-  roomthree: roomthree,
+  office: office,
+  kitchen: kitchen,
+  fireescape: fireescape,
 };
 //Tracks if the current room can change to new room
 function changeRoom(newRoom) {
@@ -183,7 +183,7 @@ function sanitizedWord(dirtyInput) {
 function pickUp(takeIt) {
   let takeableItem = itemLookUp[takeIt]
   if(!takeableItem){
-    console.log("That does not exsist in this room")
+    console.log("That does not exist in this room")
   } else if(takeableItem.takeable === true && player.location.inv.includes(takeIt)){
 player.location.inv.splice(player.location.inv.indexOf(takeIt), 1)
 player.inventory.push(takeIt)
@@ -222,7 +222,7 @@ async function start() {
     "It’s a dark damp night and you are on the road out in front of 182 Main St. and you swear you heard a soft whisper.\nWould you like to play a game?\nYou think maybe that was just a thought in your head.\nInput commands as activity followed by room or item.[ie move cityhall]"
   );
   //while the player has not reached the final room run the game
-  while (currentRoom !== roomthree) {
+  while (currentRoom !== fireescape) {
     // Take in users first response.
     let response = await ask(">_");
     //sanitize response
