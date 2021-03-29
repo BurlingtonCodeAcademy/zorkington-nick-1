@@ -47,7 +47,7 @@ const mainStreet = new Room(
 );
 const cityhall = new Room(
   "city hall",
-  "You walk up to City Hall. In front of you is a very large wooden door with a brass head of a lion as knocker. Behind you is the steps you just came up that funnel you to this massive door. You knock, the door swings open as if it was unlocked waiting for you. You step inside into what you can describe as the anti-chamber",
+  "You walk up to City Hall. In front of you is a very large wooden door with a brass head of a lion as knocker. Behind you is the steps you just came up that funnel you to this massive door. You knock, the door swings open as if it was unlocked waiting for you. You step inside into what you can describe as the antechamber",
   [],
 
   false
@@ -183,7 +183,7 @@ async function start() {
   console.log(
     "It’s a dark damp night and you are on the road out in front of 182 Main St. and you swear you heard a soft whisper.\nWould you like to play a game?\nYou think maybe that was just a thought in your head.\nInput commands as activity followed by room or item.[ie move cityhall]"
   );
-    //while the player has not reached the final room run the game
+  //while the player has not reached the final room run the game
   while (currentRoom !== roomthree) {
     // Take in users first response.
     let response = await ask(">_");
@@ -193,7 +193,7 @@ async function start() {
     let cleanArray = cleanInput.split(" ");
     let command = cleanArray[0];
     let activity = cleanArray[1];
-    //if its a movement command and the command is in the actions word bank then call the changeroom function 
+    //if its a movement command and the command is in the actions word bank then call the changeroom function
     if (actions.move.includes(command)) {
       changeRoom(activity);
     }
