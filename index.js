@@ -42,7 +42,7 @@ const mainStreet = new Room(
 );
 const cityhall = new Room(
   "city hall",
-  "You walk up to City Hall. In front of you is a very large wooden door with a brass head of a lion as knocker. Behind you is the steps you just came up that funnel you to this massive door. You knock, the door swings open as if it was unlocked waiting for you. You step inside into what you can describe as the antechamber",
+  "You walk up to City Hall. In front of you is a very large wooden door with a brass head of a lion as a knocker. Behind you is the steps you just came up that funnel you to this massive door. You knock, the door swings open as if it was unlocked waiting for you. You step inside into what you can describe as the antechamber",
   [],
 
   false
@@ -76,7 +76,7 @@ const kitchen = new Room(
   false
 );
 const fireescape = new Room(
-  "fireescape",
+  "fire escape",
   "As your running down the hallway you check the door and find it is locked.",
   [],
 
