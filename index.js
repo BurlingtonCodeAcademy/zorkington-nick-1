@@ -11,25 +11,25 @@ function ask(questionText) {
 //state machine; current room state to new room state
 let rooms = {
   mainStreet: {
-    canChangeTo: ["cityhall"]
+    canChangeTo: ["cityhall"],
   },
   cityhall: {
-    canChangeTo: ["antechamber"]
+    canChangeTo: ["antechamber"],
   },
   antechamber: {
-    canChangeTo: ["hallway"]
+    canChangeTo: ["hallway"],
   },
   hallway: {
-    canChangeTo: ["office", "kitchen", "fireescape"]
+    canChangeTo: ["office", "kitchen", "fireescape"],
   },
   office: {
-    canChangeTo: ["hallway"]
+    canChangeTo: ["hallway"],
   },
   kitchen: {
-    canChangeTo: ["hallway"]
+    canChangeTo: ["hallway"],
   },
   fireescape: {
-    canChangeTo: ["hallway"]
+    canChangeTo: ["hallway"],
   },
 };
 
@@ -39,9 +39,9 @@ let currentRoom = "mainStreet";
 //Class Constructor for items
 class Items {
   constructor(name, description, takeable) {
-    this.name = name,
-    this.description = description,
-    this.takeable = true;
+    (this.name = name),
+      (this.description = description),
+      (this.takeable = true);
   }
 }
 //Items constructor
@@ -72,21 +72,16 @@ const ticketStub = new Items(
 );
 //Item lookup table
 let itemLookUp = {
-  "stick": stick,
-  "scotch": scotch,
-  "newsPaper": newsPaper,
-  "rainJacket": rainJacket,
-  "ticketStub": ticketStub,
+  stick: stick,
+  scotch: scotch,
+  newsPaper: newsPaper,
+  rainJacket: rainJacket,
+  ticketStub: ticketStub,
 };
 
 //Class constructors of the rooms
 class Room {
-  constructor(
-    name,
-    description,
-    inv,
-    locked
-  ) {
+  constructor(name, description, inv, locked) {
     this.name = name;
     this.description = description;
     this.inv = inv;
@@ -121,7 +116,7 @@ const hallway = new Room(
 const office = new Room(
   "office",
   "At the top of the stairs there is another long hallway with many doors, but there is a door on the left that catches your eye, inside you find the door has lead you into an office with a large desk in one corner with two chairs in front. On the desk is an old newspaper.\nIn the opposite corner you see a cart that used to house a mini bar but almost everything has been tipped over and broken.\n An untouched bottle of Scotch is the only thing remaining.",
-  ['newsPaper', 'scotch'],
+  ["newsPaper", "scotch"],
   false
 );
 const kitchen = new Room(
@@ -132,42 +127,74 @@ const kitchen = new Room(
 );
 const fireescape = new Room(
   "fire escape",
-  "As your running down the hallway you check the door and find it is locked.",
+  "You made out of City Hall Well DONE!",
   [],
   true
 );
 //Room Lookup table
 let roomLookUp = {
-  "mainStreet": mainStreet,
-  "cityhall": cityhall,
-  "hallway": hallway,
-  "antechamber": antechamber,
-  "office": office,
-  "kitchen": kitchen,
-  "fireescape": fireescape,
+  mainStreet: mainStreet,
+  cityhall: cityhall,
+  hallway: hallway,
+  antechamber: antechamber,
+  office: office,
+  kitchen: kitchen,
+  fireescape: fireescape,
 };
 //Lookup table for actions
 let actions = {
-  move: ["move","enter",],
-  take: ["take","grab","pickup"],
-  drop: ["drop","leave",],
-  inspect: ["inspect","examine"],
+  move: ["move", "enter"],
+  take: ["take", "grab", "pickup"],
+  drop: ["drop", "leave"],
+  inspect: ["inspect", "examine"],
 };
 //player variables
 const player = {
   inventory: [],
   location: null,
-}
+};
 //Function Block
-//Tracks if the current room can change to new room
+//Change room function
 function changeRoom(newRoom) {
   let validTransitions = rooms[currentRoom].canChangeTo;
-  if (validTransitions.includes(newRoom)) {
-    currentRoom = newRoom;
-    console.log(roomLookUp[currentRoom].description);
-  } else {
-    console.log("doors locked");
+  // If the new room is a available movement and it is locked
+  if (
+    validTransitions.includes(newRoom) &&
+    roomLookUp[newRoom].locked === true
+  ) {
+    // if it is locked, and they have a stick they can leave City Hall
+    if (player.inventory.includes("stick")) {
+      fireescape.locked = false;
+      currentRoom = newRoom;
+      let roomForTable = roomLookUp[currentRoom];
+      //description for the rooms
+
+      console.log(roomForTable.description);
+
+      //if player doesn't have a stick, door remains locked
+    } else {
+      console.log(
+        "The door before you is locked. Maybe you should find a stick."
+      );
+    }
   }
+  //if the room exists and the door is not locked
+  else if (
+    validTransitions.includes(newRoom) &&
+    roomLookUp[newRoom].locked === false
+  ) {
+    currentRoom = newRoom;
+    let roomForTable = roomLookUp[currentRoom];
+    //console log the room descriptions
+    console.log(roomForTable.description);
+  }
+  //if the room change is invalid
+  else {
+    console.log(
+      "That doesn't seem to be a place I know about. Care to try again?"
+    );
+  }
+  //change player location
   player.location = roomLookUp[currentRoom];
 }
 
@@ -178,37 +205,38 @@ function sanitizedWord(dirtyInput) {
 }
 //pickup function
 function pickUp(takeIt) {
-  let takeableItem = itemLookUp[takeIt]
-  console.log(player)
+  let takeableItem = itemLookUp[takeIt];
+
   if (!takeableItem) {
-    console.log(player)
-    console.log("That does not exist in this room")
-  } else if (takeableItem.takeable === true && player.location.inv.includes(takeIt)) {
-    console.log(player)
-    player.location.inv.splice(player.location.inv.indexOf(takeIt), 1)
-    player.inventory.push(takeIt)
-    console.log("You picked up the " + takeIt)
+    console.log("That does not exist in this room");
+  } else if (
+    takeableItem.takeable === true &&
+    player.location.inv.includes(takeIt)
+  ) {
+    player.location.inv.splice(player.location.inv.indexOf(takeIt), 1);
+    player.inventory.push(takeIt);
+    console.log("You picked up the " + takeIt);
   } else {
-    console.log("You can't take that!")
+    console.log("You can't take that!");
   }
 }
 //drop items function
 function dropIt(trash) {
   if (player.inventory.includes(trash)) {
-    player.inventory.splice(player.inventory.indexOf(trash), 1)
-    player.location.inv.push(trash)
-    console.log("You have dropped the " + trash)
+    player.inventory.splice(player.inventory.indexOf(trash), 1);
+    player.location.inv.push(trash);
+    console.log("You have dropped the " + trash);
   } else {
-    console.log("You don't have this item")
+    console.log("You don't have this item");
   }
 }
 // examine items function
 function lookAt(checkMe) {
-  let lookAtItems = itemLookUp[checkMe]
+  let lookAtItems = itemLookUp[checkMe];
   if (player.location.inv.includes(checkMe)) {
-    console.log(lookAtItems.description)
+    console.log(lookAtItems.description);
   } else {
-    console.log("Nothing to look at")
+    console.log("Nothing to look at");
   }
 }
 // Calling the Start function to start the game initially.
@@ -219,7 +247,7 @@ async function start() {
     "It's a dark damp night and you are on the road out in front of 182 Main St. and you swear you heard a soft whisper.\nWould you like to play a game?\nYou think maybe that was just a thought in your head.\nInput commands as activity followed by room or item.[ie move cityhall]"
   );
   //while the player has not reached the final room run the game
-  while (currentRoom !== fireescape) {
+  while (currentRoom !== "fireescape") {
     // Take in users first response.
     let response = await ask(">_");
     //sanitize response
@@ -232,16 +260,19 @@ async function start() {
     if (actions.move.includes(command)) {
       changeRoom(activity);
     } else if (actions.take.includes(command)) {
-      pickUp(activity)
+      pickUp(activity);
     } else if (actions.drop.includes(command)) {
-      dropIt(activity)
+      dropIt(activity);
     } else if (actions.inspect.includes(command)) {
-      lookAt(activity)
+      lookAt(activity);
     } else if (cleanInput === "i") {
-      console.log(player.inventory)
+      console.log(player.inventory);
+    } else {
+      console.log("Invalid Input");
     }
   }
+  process.exit();
 }
 
 //To-Do
-//Locked room 
+//Locked room
